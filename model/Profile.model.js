@@ -9,7 +9,7 @@ const ProfileSchema = new mongoose.Schema({
     type: [String],
     required: true
   },
-  howTos: {
+  howtos: {
     type: String
   },
   githubusername: {
