@@ -319,6 +319,10 @@ li {
 Edit Profile Page
 *************/
 
+/************
+ Register & Login Page
+*************/
+
 .form-section {
   .form-title {
     text-align: center;
@@ -332,6 +336,18 @@ Edit Profile Page
     background-color: #fff;
 
     margin-bottom: 20px;
+
+    .form-detail-options {
+      margin-top: 16px;
+
+      .has-account {
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+        font-size: 12px;
+        text-decoration: underline;
+      }
+    }
   }
 
   input[type='text'],
