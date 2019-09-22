@@ -39,6 +39,20 @@ li {
   margin-top: 104px;
 }
 
+@media screen and (min-width: 896px) {
+  .container {
+    width: 60%;
+    margin: 104px auto 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    width: 50%;
+    margin: 120px auto 0;
+  }
+}
+
 /* Navbar Component */
 .nav {
   display: flex;
