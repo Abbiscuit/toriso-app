@@ -1,16 +1,384 @@
+/******************
+  Global Styling
+*******************/
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
 
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  background-color: #f2f2f2;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+ul,
+li {
+  list-style-type: none;
+}
+
+/* Container */
+.container {
+  padding: 20px;
+  margin-top: 104px;
+}
+
+/* Navbar Component */
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  position: fixed;
+  top: 0;
+  z-index: 1;
+  padding: 16px 20px 0;
+  width: 100%;
+
+  background-color: #fff;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+
+  .logo {
+    display: inline-block;
+    font-size: 24px;
+
+    font-weight: bold;
+    color: #ff183e;
+  }
+
+  .nav-list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .nav-list-item a {
+      display: inline-block;
+      font-size: 14px;
+      padding: 16px 10px;
+    }
+  }
+}
+
+@media screen and (min-width: 896px) {
+  .nav {
+    flex-direction: row;
+    padding: 16px 100px 0;
+
+    .nav-list {
+      justify-content: flex-end;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .nav {
+    flex-direction: row;
+    padding: 16px 120px;
+
+    .nav-list {
+      justify-content: flex-end;
+    }
+  }
+}
+
+/* Section  */
+.section-title {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: normal;
+}
+
+/* Post Feed (Post List) Component */
+.post-feed {
+  .post-detail {
+    padding: 16px 20px;
+    background-color: #fff;
+
+    margin-bottom: 20px;
+
+    .post-image-figure {
+      text-align: center;
+
+      .post-image {
+        margin-bottom: 16px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+      }
+    }
+
+    .post-detail-title {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .post-detail-date {
+      font-size: 12px;
+      color: #808080;
+    }
+
+    .post-detail-author {
+      font-weight: bold;
+    }
+
+    .post-detail-options {
+      margin-top: 16px;
+    }
+  }
+}
+
+/* Button */
+.button {
+  display: inline-block;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 24px;
+
+  background-color: #fff;
+  border: 2px solid #ff5d5d;
+  color: #ff5d5d;
+}
+
+.button:hover {
+  background-color: #ff5d5d;
+  border: 2px solid #ff5d5d;
+  color: #fff;
+}
+
+/* Like Button */
+.button.button-icon {
+  padding: 0;
+  margin-right: 8px;
+  border-radius: 0;
+  height: auto;
+  border: none;
+  background-color: #fff;
+  color: #333;
+}
+
+/****************
+  Developers Page
+****************/
+
+.devs-section {
+  .devs-detail {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 16px 20px;
+    background-color: #fff;
+
+    margin-bottom: 20px;
+
+    .devs-image-figure {
+      width: 30%;
+
+      .devs-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+      }
+    }
+
+    .devs-name {
+      width: 70%;
+      margin-left: 16px;
+
+      .devs-detail-title {
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/******************
+  Profile Page
+*********************8*/
+
+.profile-section {
+  .profile-detail {
+    padding: 16px 20px;
+    background-color: #fff;
+
+    margin-bottom: 20px;
+
+    .profile-image-figure {
+      text-align: center;
+
+      .profile-image {
+        &.profile-image-large {
+          margin-bottom: 16px;
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+        }
+      }
+    }
+
+    .profile-detail-title {
+      font-size: 18px;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .profile-detail-options {
+      margin-top: 16px;
+
+      .skills,
+      .how-to,
+      .about-me {
+        font-size: 18px;
+        margin-bottom: 16px;
+        font-weight: normal;
+      }
+
+      .list {
+        margin-bottom: 36px;
+
+        .list-item {
+          font-size: 14px;
+          margin-bottom: 8px;
+
+          font-weight: normal;
+        }
+      }
+
+      .about-me-description {
+        font-size: 14px;
+        margin-bottom: 36px;
+        line-height: 2;
+        font-weight: normal;
+      }
+
+      .button-block {
+        text-align: center;
+        display: block;
+        width: 40%;
+        margin: 0 auto;
+      }
+
+      .github-list {
+        .github-title {
+          font-size: 18px;
+          margin-bottom: 16px;
+          font-weight: normal;
+        }
+
+        .github-item {
+          padding: 8px 16px;
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+          margin-bottom: 16px;
+
+          .github-item-title {
+            font-size: 18px;
+          }
+
+          .github-item-description {
+            font-size: 14px;
+            opacity: 0.7;
+          }
+        }
+      }
+    }
+  }
+}
+
+/************
+Edit Profile Page
+*************/
+
+.form-section {
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-weight: normal;
+  }
+
+  .form-detail {
+    padding: 16px 20px;
+    background-color: #fff;
+
+    margin-bottom: 20px;
+  }
+
+  input[type='text'],
+  input[type='email'],
+  input[type='password'] {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+  }
+
+  label {
+    display: inline-block;
+    font-size: 14px;
+    padding: 8px 16px;
+    color: #333;
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    height: 240px;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+  }
+
+  .button-block {
+    display: block;
+    width: 40%;
+    margin: 0 auto;
+  }
+}
+
+/************
+Posts Comment Page
+*************/
+
+.post-feed {
+  textarea {
+    display: block;
+    width: 100%;
+    height: 240px;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+  }
+
+  .button-block {
+    display: block;
+    width: 40%;
+    margin: -8px auto 24px;
+  }
+
+  .post-detail-comments {
+    margin-bottom: 16px;
+    line-height: 1.8;
+    color: #333;
+  }
 }
