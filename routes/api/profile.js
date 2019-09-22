@@ -1,13 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
 const config = require('config');
 const { check, validationResult } = require('express-validator');
 const auth = require('../../middleware/auth.middleware');
 
 const Profile = require('../../model/Profile.model');
 const User = require('../../model/User.model');
+const Post = require('../../model/Post.model');
 
 // @route        GET api/profile/me
 // @desc         Get current user profile
@@ -56,7 +55,7 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { skills, howtos } = req.body;
+    const { skills, howtos, githubusername } = req.body;
 
     // Profile Object
     const profileFields = {};
@@ -67,20 +66,16 @@ router.post(
     if (howtos) {
       profileFields.howtos = howtos;
     }
+    if (githubusername) {
+      profileFields.githubusername = githubusername;
+    }
 
     // Validation
     try {
       let profile = await Profile.findOneAndUpdate(
-        {
-          user: req.user.id
-        },
-        {
-          $set: profileFields
-        },
-        {
-          new: true,
-          upsert: true
-        }
+        { user: req.user.id },
+        { $set: profileFields },
+        { new: true, upsert: true }
       );
       res.json(profile);
     } catch (err) {
@@ -96,7 +91,7 @@ router.post(
 
 router.get('/', async (req, res) => {
   try {
-    const profiles = await Profile.find().populate('user', ['name']);
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
 
     res.json(profiles);
   } catch (err) {
@@ -113,7 +108,7 @@ router.get('/user/:user_id', async (req, res) => {
   try {
     const profile = await Profile.findOneAndUpdate({
       user: req.params.user_id
-    }).populate('user', ['name']);
+    }).populate('user', ['name', 'avatar']);
 
     if (!profile) {
       return res.status(400).json({
@@ -145,6 +140,27 @@ router.delete('/', auth, async (req, res) => {
   } catch (err) {
     console.error(err.message);
 
+    res.status(500).send('Server Error');
+  }
+});
+
+// @route        GET api/profile/github/:username
+// @desc         Get user github repos
+// @access       Public
+
+router.get('/github/:username', (req, res) => {
+  try {
+    // const options = {
+    //   uri: `https://api.github.com/users/${
+    //     req.params.username
+    //   }/repos?per_page=5&sort=created:asc&client_id=${config.get(
+    //     'githubClientId'
+    //   )}&client_secret=${config.get('githubSecret')}`,
+    //   method: 'GET',
+    //   headers: { 'user-agent': 'node.js' }
+    // };
+  } catch (err) {
+    console.error(err.message);
     res.status(500).send('Server Error');
   }
 });
