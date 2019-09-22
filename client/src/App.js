@@ -11,6 +11,7 @@ import EditProfile from './pages/profile/edit-profile.component';
 import PostsComment from './pages/posts/posts-comment';
 import Register from './pages/register/register.component';
 import Login from './pages/login/login.component';
+import PostsNew from './pages/posts/posts-new.component';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Posts} />
           <Route exact path="/posts-comment" component={PostsComment} />
+          <Route exact path="/posts-new" component={PostsNew} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/edit-profile" component={EditProfile} />
           <Route exact path="/developers" component={Developers} />

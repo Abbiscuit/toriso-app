@@ -15,6 +15,18 @@ const Navbar = () => {
           </Link>
         </li>
         <li className="nav-list-item">
+          <Link to="/profile">
+            <i className="fas fa-user"></i> プロフィール
+          </Link>
+        </li>
+        <li className="nav-list-item">
+          <Link to="/posts-new">
+            <i class="far fa-edit"></i>
+            {'  '}
+            投稿
+          </Link>
+        </li>
+        <li className="nav-list-item">
           <Link to="/register">新規登録</Link>
         </li>
         <li className="nav-list-item">

@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 
 import { Link } from 'react-router-dom';
+import PostsForm from '../../components/posts-form/posts-form.component';
 
 const PostsComment = () => {
   return (
@@ -33,16 +34,7 @@ const PostsComment = () => {
           </p>
         </div>
 
-        <form>
-          <textarea
-            type="text"
-            name="about-me"
-            id="about-me"
-            placeholder="コメントを入力しよう。"
-          ></textarea>
-
-          <input type="submit" value="投稿" className="button button-block" />
-        </form>
+        <PostsForm />
 
         <div className="post-detail">
           <figure className="post-image-figure">
